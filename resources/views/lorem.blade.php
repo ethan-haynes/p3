@@ -40,8 +40,8 @@
             <div class="content">
                 <div class="title">Laravel 5</div>
             </div>
+            <a href="index.php">welcome</a>
             <a href="user">user</a>
-            <a href="lorem">lorem</a>
         </div>
     </body>
 </html>

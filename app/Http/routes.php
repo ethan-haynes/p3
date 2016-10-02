@@ -13,4 +13,10 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+Route::get('/lorem', function () {
+    return view('lorem');
+})->name('lorem');
+Route::get('/user', function () {
+    return view('user');
+})->name('user');
