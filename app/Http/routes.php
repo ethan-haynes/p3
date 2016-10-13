@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $title = "test";
+    return view('welcome')->with('title', $title);;
 })->name('welcome');
 Route::get('/lorem', function () {
     return view('lorem');

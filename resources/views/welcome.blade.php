@@ -1,47 +1,35 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('title')
+    p3
+@stop
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+{{--
+This `head` section will be yielded right before the closing </head> tag.
+Use it to add specific things that *this* View needs in the head,
+such as a page specific stylesheets.
+--}}
+@section('head')
+    <link href="/css/books/show.css" type='text/css' rel='stylesheet'>
+@stop
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
 
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
-            <a href="user">user</a>
-            <a href="lorem">lorem</a>
-        </div>
-    </body>
-</html>
+@section('content')
+    @if($title)
+        <h1>This is a {{ $title }}</h1>
+    @else
+        <h1>No book chosen</h1>
+    @endif
+@stop
+
+
+{{--
+This `body` section will be yielded right before the closing </body> tag.
+Use it to add specific things that *this* View needs at the end of the body,
+such as a page specific JavaScript files.
+--}}
+@section('body')
+    <script src="/js/books/show.js"></script>
+@stop
