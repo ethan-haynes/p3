@@ -34,7 +34,11 @@
             <br>
         </div>
     </header>
-
+    <div>
+        <a href="p3-dwa15/p3/public/">home</a>
+        <a href="/p3-dwa15/p3/public/lorem">lorem</a>
+        <a href="/p3-dwa15/p3/public/user">user</a>
+    </div>
     <section>
         {{-- Main page content will be yielded here --}}
         @yield('content')

@@ -13,13 +13,19 @@
 
 Route::get('/', function () {
     $title = "test";
-    return view('welcome')->with('title', $title);;
+
+    return view('welcome')->with('title', $title);
 })->name('welcome');
 Route::get('/lorem', function () {
-    return view('lorem');
+    $generator = new Badcow\LoremIpsum\Generator();
+    $paragraphs = $generator->getParagraphs(5);
+
+    return view('lorem')->with('title', implode('<p>', $paragraphs));
 })->name('lorem');
 Route::get('/user', function () {
-    return view('user');
+    $faker = Faker\Factory::create();
+
+    return view('user')->with('title', $faker->name);
 })->name('user');
 
 Route::post('/users', 'RandomUserController@generate')->name('users.generate');
