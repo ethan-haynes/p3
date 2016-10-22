@@ -18,6 +18,13 @@ class LoremIpsumController extends Controller
         //
     }
 
+    public function generate(Request $request) {
+        $generator = new Badcow\LoremIpsum\Generator();
+        $paragraphs = $generator->getParagraphs(5);
+
+        return view('lorem')->with('title', implode('<p>', $paragraphs));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

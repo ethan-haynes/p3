@@ -7,8 +7,9 @@
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" charset='utf-8'>
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ URL::asset('/css/app.css') }}">
+
+    <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
     <!-- <link rel="stylesheet" href="css/jquery-ui.css"> -->
 
     {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
@@ -35,9 +36,9 @@
         </div>
     </header>
     <div>
-        <a href="p3-dwa15/p3/public/">home</a>
-        <a href="/p3-dwa15/p3/public/lorem">lorem</a>
-        <a href="/p3-dwa15/p3/public/user">user</a>
+        <a href="/">home</a>
+        <a href="/lorem">lorem</a>
+        <a href="/user/generator">user</a>
     </div>
     <section>
         {{-- Main page content will be yielded here --}}
@@ -49,8 +50,8 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="js/main.js" type="text/javascript"></script>
+    <script src="{{ URL::asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::asset('js/main.js') }}" type="text/javascript"></script>
 
     {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}
     @yield('body')

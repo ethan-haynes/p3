@@ -9,6 +9,27 @@ use p3\Http\Requests;
 class RandomUserController extends Controller
 {
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function generate(Request $request) {
+        # Validate the request data
+        $this->validate($request, [
+            'title' => 'required|min:3',
+        ]);
+
+        
+
+        $faker = Faker\Factory::create();
+
+        return view('user')->with('title', $faker->name);
+
+        # If the code makes it here, you can assume the validation passed
+        $title = $request->input('title');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

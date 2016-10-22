@@ -22,13 +22,19 @@ Route::get('/lorem', function () {
 
     return view('lorem')->with('title', implode('<p>', $paragraphs));
 })->name('lorem');
-Route::get('/user', function () {
+Route::post('/user', function () {
     $faker = Faker\Factory::create();
 
-    return view('user')->with('title', $faker->name);
+    return view('user')->with('title', $faker->state);
 })->name('user');
+Route::get('/user/generator', function () {
+    // $faker = Faker\Factory::create();
+    $faker = Faker\Factory::create('fr_FR');
 
-Route::post('/users', 'RandomUserController@generate')->name('users.generate');
+    return view('userGenerator')->with('title', $faker->address);
+})->name('userGenerator');
+
+// Route::post('/users', 'RandomUserController@generate')->name('users.generate');
 Route::post('/ipsums', 'LoremIpsumController@generate')->name('loreipsumsms.generate');
 
 
