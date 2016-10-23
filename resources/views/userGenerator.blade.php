@@ -41,7 +41,7 @@ such as a page specific stylesheets.
                     Number:
                         <input type="text" name="number" value="1"><em class="note">*</em><br>
                     Name:
-                        <input type="checkbox" name="name" value="y">
+                        <input type="checkbox" name="name" value="y" checked>
                         <br>
                     Address:
                         <input type="checkbox" name="address" value="y">

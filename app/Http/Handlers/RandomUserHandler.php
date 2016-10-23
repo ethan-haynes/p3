@@ -35,7 +35,7 @@ class RandomUserHandler extends Handler {
 
     private static function findMatches($input, $output) {
         $input = array_filter($input, function($k) {
-            return $k != '_token' && $k != 'number';
+            return $k != '_token' && $k != 'number' && $k != 'locale';
         }, ARRAY_FILTER_USE_KEY);
 
         foreach ($input as $key => $value) {
