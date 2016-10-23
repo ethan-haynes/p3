@@ -17,9 +17,19 @@ such as a page specific stylesheets.
 
 @section('content')
     @if($title)
+
         <h1>This is a {{ $title }}</h1>
     @else
         <h1>No book chosen</h1>
+    @endif
+
+    @if($lorems)
+        @forelse($lorems as $lorem)
+            <li>{{ $lorem }}</li>
+            <br>
+        @empty
+            <p>No users Available</p>
+        @endforelse
     @endif
 @stop
 

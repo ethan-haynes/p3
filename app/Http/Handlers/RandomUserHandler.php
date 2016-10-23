@@ -15,18 +15,29 @@ class RandomUserHandler extends Handler {
         // return $passwordDirector->build();
 
 
-
         $number = $input['number'];
         $locale = (array_key_exists('localeValue', $input)) ? $input['localeValue'] : 'en_US';
 
-        $output = array(Factory::create($locale));
-        $input = self::findMatches($input, $output[0]);
-        dump($input);
-        for ($i=0; $i < $number-1; $i++) {
-            array_push($output, Factory::create($locale));
+
+        $output = array_filter($input, function($k) {
+            return $k != '_token' &&
+                   $k != 'number' &&
+                   $k != 'locale' &&
+                   $k != 'payment';
+        }, ARRAY_FILTER_USE_KEY);
+
+        $factory = Factory::create($locale);
+        $response = array();
+
+        for ($i=0; $i < $number; $i++) {
+            $data = array(
+                'user'.$i => self::findMatches($output, $factory)
+            );
+
+            $response = array_merge($response, $data);
         }
 
-        return $output;
+        return $response;
     }
 
     private static function parseRequest(Request $request) {
@@ -34,21 +45,23 @@ class RandomUserHandler extends Handler {
     }
 
     private static function findMatches($input, $output) {
-        $input = array_filter($input, function($k) {
-            return $k != '_token' && $k != 'number' && $k != 'locale';
-        }, ARRAY_FILTER_USE_KEY);
-
         foreach ($input as $key => $value) {
-            if ($key == 'name') {
-                $input[$key] = $output->name;
-            } elseif ($key == 'phoneNumber') {
-                $input[$key] = $output->PhoneNumber;
-            } elseif ($key == 'creditCardType') {
-                $input[$key] = $output->creditCardType;
-            } elseif ($key == 'company') {
-                $input[$key] = $output->Company;
-            } elseif ($key == 'address') {
-                $input[$key] = $output->Address;
+            switch ($key) {
+                case 'name': $input[$key] = "Name: ".$output->name;
+                    break;
+                case 'phoneNumber': $input[$key] = "Phone Number: ".$output->PhoneNumber;
+                    break;
+                case 'creditCardType': $input[$key] = "Credit Card Type: ".$output->creditCardType;
+                    break;
+                case 'creditCardNumber': $input[$key] = "Credit Card Number: ".$output->creditCardNumber;
+                    break;
+                case 'company': $input[$key] = "Company: ".$output->company;
+                    break;
+                case 'address': $input[$key] = "Address: ".$output->address;
+                    break;
+                case 'localeValue': $input[$key] = "Locale: ".$value;
+                    break;
+                # no default required here
             }
         }
         return $input;

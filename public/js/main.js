@@ -7,15 +7,15 @@
 
     //Document ready
     $(function() {
-        var numSC = $('#numSC');
-        var caps = $('#caps');
+        var localeValue = $('#localeValue');
+        var paymentInfo = $('#paymentInfo');
 
         $('#locale').change(function() {
-            isSelectedSC = changeVisibility(isSelectedSC, numSC);
+            isSelectedSC = changeVisibility(isSelectedSC, localeValue);
         });
 
-        $('#uppercase').change(function() {
-            isSelectedCaps = changeVisibility(isSelectedCaps, caps);
+        $('#payment').change(function() {
+            isSelectedCaps = changeVisibility(isSelectedCaps, paymentInfo);
         });
 
         //changes the visibility of the form fields depending on selection of "parent"
@@ -29,7 +29,5 @@
         };
     });
 })(jQuery);
-
-//# sourceMappingURL=main.js.map
 
 //# sourceMappingURL=main.js.map

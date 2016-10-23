@@ -16,26 +16,17 @@ Route::get('/', function () {
 
     return view('welcome')->with('title', $title);
 })->name('welcome');
-Route::get('/lorem', function () {
-    $generator = new Badcow\LoremIpsum\Generator();
-    $paragraphs = $generator->getParagraphs(5);
 
-    return view('lorem')->with('title', implode('<p>', $paragraphs));
-})->name('lorem');
-// Route::post('/user', function () {
-//     $faker = Faker\Factory::create();
-//
-//     return view('user')->with('title', $faker->state);
-// })->name('user');
+Route::get('/lorem/generator', function () {
+    return view('loremGenerator')->with('title', 'Lorem Ipsum Generator');
+})->name('loremGenerator');
+
 Route::get('/user/generator', function () {
-    // $faker = Faker\Factory::create();
-    $faker = Faker\Factory::create('fr_FR');
-
-    return view('userGenerator')->with('title', $faker->address);
+    return view('userGenerator')->with('title', 'Random User Generator');
 })->name('userGenerator');
 
 Route::post('/user', 'RandomUserController@generate')->name('users.generate');
-Route::post('/ipsums', 'LoremIpsumController@generate')->name('loreipsumsms.generate');
+Route::post('/lorem', 'LoremIpsumController@generate')->name('loreipsumsms.generate');
 
 
 /*

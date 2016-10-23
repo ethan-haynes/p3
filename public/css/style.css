@@ -47,7 +47,7 @@ li[role="presentation"] a:hover {
     color: #636AA2;
 }
 
-#numSC, #caps {
+#localeValue, #paymentInfo {
     visibility: hidden;
 }
 

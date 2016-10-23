@@ -21,9 +21,9 @@ class RandomUserController extends Controller
             'localeValue' => 'alpha_dash'
         ]);
 
-        $response = RandomUserHandler::handleRequest($request);
+        $users = RandomUserHandler::handleRequest($request);
 
-        return view('user')->with('title', "Random User Generator")->with('users', $response);
+        return view('user')->with('title', "Random User Generator")->with('users', $users);
     }
 
     /**

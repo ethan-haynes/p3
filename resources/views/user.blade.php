@@ -24,12 +24,12 @@ such as a page specific stylesheets.
 
     @if($users)
         @forelse($users as $user)
-            <li>{{ $user->name }}</li>
-            <li>{{ $user->address }}</li>
-            <br>
+            @foreach ($user as $userInfo)
+                <li>{{ $userInfo }}</li>
+            @endforeach
             <br>
         @empty
-            <p>No users</p>
+            <p>No users Available</p>
         @endforelse
     @endif
 

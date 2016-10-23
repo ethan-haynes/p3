@@ -5,14 +5,12 @@
 @stop
 
 
-
 {{--
 This `head` section will be yielded right before the closing </head> tag.
 Use it to add specific things that *this* View needs in the head,
 such as a page specific stylesheets.
 --}}
 @section('head')
-    @parent
     <link href="/css/books/show.css" type='text/css' rel='stylesheet'>
 @stop
 
@@ -34,37 +32,24 @@ such as a page specific stylesheets.
                     <div>Powered by Magic &amp; Bubble Yum</div>
                 </div>
                 <br>
-                <br>
+
                 <!-- value updated by model -->
-                <form action="/user" method="POST" class="inner">
+                <form action="/lorem" method="POST" class="inner">
                     {{ csrf_field() }}
-                    Number:
-                        <input type="text" name="number" value="1"><em class="note">*</em><br>
-                    Name:
-                        <input type="checkbox" name="name" value="y" checked>
-                        <br>
-                    Address:
-                        <input type="checkbox" name="address" value="y">
-                        <br>
-                    Phone Number:
-                        <input type="checkbox" name="phoneNumber" value="y">
-                        <br>
-                    Company:
-                        <input type="checkbox" name="company" value="y">
-                        <br>
-                    Payment:
-                        <input type="checkbox" name="payment" value="y" id="payment">
-                        <span id="paymentInfo">
-                            Credit Card Type:
-                            <input type="checkbox" name="creditCardType" value="pc">
-                            Credit Card Number:
-                            <input type="checkbox" name="creditCardNumber" value="ac"></span><br>
-                    Locale:
-                        <input type="checkbox" name="locale" value="y" id="locale">
-                        <span id="localeValue">Identifier:
-                        <input type="text" name="localeValue" value="en_US"></span>
+                    Words:
+                        <input type="radio" name="choice" value="words" checked>
+                        &nbsp;
+                    Sentences:
+                        <input type="radio" name="choice" value="sentences">
+                        &nbsp;
+                    Paragraphs:
+                        <input type="radio" name="choice" value="paragraphs">
                         <br>
                         <br>
+                        Number:
+                            <input type="text" name="number" value="1"><em class="note">*</em><br>
+                        <br>
+
                         <div class="col-xs-12 col-md-12 text-center">
                             <input type="submit" class="btn btn-info">
                         </div>

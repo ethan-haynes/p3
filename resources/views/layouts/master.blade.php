@@ -37,7 +37,7 @@
     </header>
     <div>
         <a href="/">home</a>
-        <a href="/lorem">lorem</a>
+        <a href="/lorem/generator">lorem</a>
         <a href="/user/generator">user</a>
     </div>
     <section>

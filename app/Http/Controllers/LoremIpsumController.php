@@ -5,6 +5,7 @@ namespace p3\Http\Controllers;
 use Illuminate\Http\Request;
 
 use p3\Http\Requests;
+use p3\Http\Handlers\LoremIpsumHandler;
 
 class LoremIpsumController extends Controller
 {
@@ -19,10 +20,14 @@ class LoremIpsumController extends Controller
     }
 
     public function generate(Request $request) {
-        $generator = new Badcow\LoremIpsum\Generator();
-        $paragraphs = $generator->getParagraphs(5);
+        # Validate the request data
+        $this->validate($request, [
+            'number' => 'required|min:1|max:9|integer',
+        ]);
 
-        return view('lorem')->with('title', implode('<p>', $paragraphs));
+        $lorems = LoremIpsumHandler::handleRequest($request);
+
+        return view('lorem')->with('title', 'Lorem Ipsum Generator')->with('lorems', $lorems);;
     }
 
     /**
