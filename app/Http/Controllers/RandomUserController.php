@@ -5,6 +5,7 @@ namespace p3\Http\Controllers;
 use Illuminate\Http\Request;
 
 use p3\Http\Requests;
+use p3\Http\Handlers\RandomUserHandler;
 
 class RandomUserController extends Controller
 {
@@ -16,17 +17,13 @@ class RandomUserController extends Controller
     public function generate(Request $request) {
         # Validate the request data
         $this->validate($request, [
-            'title' => 'required|min:3',
+            'number' => 'required|min:1|max:9|integer',
+            'localeValue' => 'alpha_dash'
         ]);
 
-        
+        $response = RandomUserHandler::handleRequest($request);
 
-        $faker = Faker\Factory::create();
-
-        return view('user')->with('title', $faker->name);
-
-        # If the code makes it here, you can assume the validation passed
-        $title = $request->input('title');
+        return view('user')->with('title', "Random User Generator")->with('users', $response);
     }
 
     /**

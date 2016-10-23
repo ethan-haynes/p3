@@ -22,11 +22,11 @@ Route::get('/lorem', function () {
 
     return view('lorem')->with('title', implode('<p>', $paragraphs));
 })->name('lorem');
-Route::post('/user', function () {
-    $faker = Faker\Factory::create();
-
-    return view('user')->with('title', $faker->state);
-})->name('user');
+// Route::post('/user', function () {
+//     $faker = Faker\Factory::create();
+//
+//     return view('user')->with('title', $faker->state);
+// })->name('user');
 Route::get('/user/generator', function () {
     // $faker = Faker\Factory::create();
     $faker = Faker\Factory::create('fr_FR');
@@ -34,7 +34,7 @@ Route::get('/user/generator', function () {
     return view('userGenerator')->with('title', $faker->address);
 })->name('userGenerator');
 
-// Route::post('/users', 'RandomUserController@generate')->name('users.generate');
+Route::post('/user', 'RandomUserController@generate')->name('users.generate');
 Route::post('/ipsums', 'LoremIpsumController@generate')->name('loreipsumsms.generate');
 
 

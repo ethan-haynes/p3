@@ -1,4 +1,4 @@
-@extends('user')
+@extends('layouts.master')
 
 @section('title')
     p3
@@ -46,6 +46,12 @@ such as a page specific stylesheets.
                     Address:
                         <input type="checkbox" name="address" value="y">
                         <br>
+                    Phone Number:
+                        <input type="checkbox" name="phoneNumber" value="y">
+                        <br>
+                    Company:
+                        <input type="checkbox" name="company" value="y">
+                        <br>
                     Upper Case:
                         <input type="checkbox" name="uppercase" value="y" id="uppercase">
                         <span id="caps">
@@ -55,8 +61,8 @@ such as a page specific stylesheets.
                             <input type="radio" name="caps" value="ac"></span><br>
                     Locale:
                         <input type="checkbox" name="locale" value="y" id="locale">
-                        <span id="numSC">Number:
-                        <input type="text" name="numSC" value="1"><em class="note">*</em></span>
+                        <span id="numSC">Identifier:
+                        <input type="text" name="localeValue" value="en_US"></span>
                         <br>
                         <br>
                         <div class="col-xs-12 col-md-12 text-center">

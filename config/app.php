@@ -155,7 +155,6 @@ return [
         p3\Providers\AuthServiceProvider::class,
         p3\Providers\EventServiceProvider::class,
         p3\Providers\RouteServiceProvider::class,
-
     ],
 
     /*
@@ -201,7 +200,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
     ],
 
 ];

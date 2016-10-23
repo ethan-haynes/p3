@@ -14,15 +14,26 @@ such as a page specific stylesheets.
     <link href="/css/books/show.css" type='text/css' rel='stylesheet'>
 @stop
 
-
 @section('content')
     @if($title)
+
         <h1>This is a {{ $title }}</h1>
     @else
         <h1>No book chosen</h1>
     @endif
-@stop
 
+    @if($users)
+        @forelse($users as $user)
+            <li>{{ $user->name }}</li>
+            <li>{{ $user->address }}</li>
+            <br>
+            <br>
+        @empty
+            <p>No users</p>
+        @endforelse
+    @endif
+
+@stop
 
 {{--
 This `body` section will be yielded right before the closing </body> tag.
