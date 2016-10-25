@@ -16,20 +16,35 @@ such as a page specific stylesheets.
 
 @section('content')
     @if($title)
-
-        <h1>This is a {{ $title }}</h1>
+    <div class="row">
+        <div class="col-xs-1 col-md-2"></div>
+        <div class="col-xs-10 col-md-8 container text-center">
+            <div class="article-title">{{ $title }}</div>
+        </div>
+    </div>
     @else
-        <h1>No book chosen</h1>
+        <h1>No Generator Chosen</h1>
     @endif
 
     @if($users)
         @forelse($users as $user)
-            @foreach ($user as $userInfo)
-                <li>{{ $userInfo }}</li>
-            @endforeach
+        <div class="row">
+            <!-- main column left -->
+            <div class="col-xs-1 col-md-2"></div>
+            <!-- main column center -->
+            <div class="col-xs-10 col-md-8 container text-center">
+                <ul>
+                    @foreach ($user as $userInfo)
+                        <li>{{ $userInfo }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            </div>
+       </div>
+
             <br>
         @empty
-            <p>No users Available</p>
+            <p>No Generator Chosen</p>
         @endforelse
     @endif
 

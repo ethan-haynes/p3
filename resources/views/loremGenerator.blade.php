@@ -17,17 +17,13 @@ such as a page specific stylesheets.
 
 @section('content')
     @if($title)
-        <h1>This is a {{ $title }}</h1>
         <div class="row">
             <!-- main column left -->
             <div class="col-xs-1 col-md-2"></div>
             <!-- main column center -->
             <div class="col-xs-10 col-md-8 container text-center">
-                <h1 class="title">
-                    P2
-                </h1>
                 <div>
-                    <div class="article-title">User Generator</div>
+                    <div class="article-title">{{ $title }}</div>
                     <div class="half-line"></div>
                     <div>Powered by Magic &amp; Bubble Yum</div>
                 </div>

@@ -8,7 +8,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" charset='utf-8'>
     <link rel="stylesheet" href="{{ URL::asset('/css/app.css') }}">
-
     <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
     <!-- <link rel="stylesheet" href="css/jquery-ui.css"> -->
 
@@ -17,7 +16,6 @@
 
 </head>
 <body>
-
     <header>
         <div class="row">
             <nav class="col-xs-12 col-md-12 navbar navbar-default navbar-static-top">
@@ -36,9 +34,22 @@
         </div>
     </header>
     <div>
-        <a href="/">home</a>
-        <a href="/lorem/generator">lorem</a>
-        <a href="/user/generator">user</a>
+        <div class="row">
+            <div class="col-xs-12 col-md-12 container text-center title">
+                <a href="/lorem/generator">lorem</a>
+                <a href="/user/generator">user</a>
+            </div>
+        </div>
+        <div class="row">
+            <!-- main column left -->
+            <div class="col-xs-1 col-md-2"></div>
+            <!-- main column center -->
+            <div class="col-xs-10 col-md-8 container text-center">
+                <h1 class="title">
+                    p3
+                </h1>
+            </div>
+        </div>
     </div>
     <section>
         {{-- Main page content will be yielded here --}}

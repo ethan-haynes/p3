@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    $title = "test";
+    $title = "p3 home";
 
     return view('welcome')->with('title', $title);
 })->name('welcome');
