@@ -12,20 +12,13 @@
 */
 
 Route::get('/', function () {
-    $title = "p3 home";
-
-    return view('welcome')->with('title', $title);
+    return view('welcome')->with('title', "p3 home");
 })->name('welcome');
 
-Route::get('/lorem/generator', function () {
-    return view('loremGenerator')->with('title', 'Lorem Ipsum Generator');
-})->name('loremGenerator');
-
-Route::get('/user/generator', function () {
-    return view('userGenerator')->with('title', 'Random User Generator');
-})->name('userGenerator');
-
+Route::get('/user/generator', 'RandomUserController@form')->name('userGenerator');
 Route::post('/user', 'RandomUserController@generate')->name('users.generate');
+
+Route::get('/lorem/generator', 'LoremIpsumController@form')->name('loremGenerator');
 Route::post('/lorem', 'LoremIpsumController@generate')->name('loreipsumsms.generate');
 
 
