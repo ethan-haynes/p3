@@ -20,7 +20,7 @@ class LoremIpsumController extends Controller
         return view('lorem')->with('title', 'Lorem Ipsum Generator')->with('lorems', $lorems);;
     }
 
-    public function form() {
+    public function generateForm() {
         return view('loremGenerator')->with('title', 'Lorem Ipsum Generator');
     }
 }

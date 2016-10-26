@@ -1,9 +1,9 @@
 (function($) {
     'use strict';
     //if special character radio button is selected
-    var isSelectedSC = false;
+    var isSelectedLocale = false;
     //if uppercase radio button is selected
-    var isSelectedCaps = false;
+    var isSelectedPayment = false;
 
     //Document ready
     $(function() {
@@ -11,11 +11,11 @@
         var paymentInfo = $('#paymentInfo');
 
         $('#locale').change(function() {
-            isSelectedSC = changeVisibility(isSelectedSC, localeValue);
+            isSelectedLocale = changeVisibility(isSelectedLocale, localeValue);
         });
 
         $('#payment').change(function() {
-            isSelectedCaps = changeVisibility(isSelectedCaps, paymentInfo);
+            isSelectedPayment = changeVisibility(isSelectedPayment, paymentInfo);
         });
 
         //changes the visibility of the form fields depending on selection of "parent"

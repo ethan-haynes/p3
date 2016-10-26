@@ -26,7 +26,7 @@ class RandomUserController extends Controller
         return view('user')->with('title', "Random User Generator")->with('users', $users);
     }
 
-    public function form() {
+    public function generateForm() {
         return view('userGenerator')->with('title', 'Random User Generator');
     }
 }
