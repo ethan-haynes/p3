@@ -27,8 +27,15 @@ such as a page specific stylesheets.
                     <div class="half-line"></div>
                     <div>Powered by Magic &amp; Bubble Yum</div>
                 </div>
+                @if(count($errors) > 0)
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li class="note">{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @else
                 <br>
-
+                @endif
                 <!-- value updated by model -->
                 <form action="/lorem" method="POST" class="inner">
                     {{ csrf_field() }}

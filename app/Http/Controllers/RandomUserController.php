@@ -18,7 +18,7 @@ class RandomUserController extends Controller
         # Validate the request data
         $this->validate($request, [
             'number' => 'required|min:1|max:9|integer',
-            'localeValue' => 'alpha_dash'
+            'localeValue' => 'required|min:5|max:5|alpha_dash|regex:[[a-z]{2}_[A-Z]{2}]'
         ]);
 
         $users = RandomUserHandler::handleRequest($request);
