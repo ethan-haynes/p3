@@ -59,7 +59,7 @@ such as a page specific stylesheets.
                 </form>
                 <div>
                     <div class="line"></div>
-                    Please use a valid number between 1-8 or bad things will happen
+                    Please use a valid number between 1-9 or bad things will happen
                     <em class="note">*</em>
                 </div>
             </div>
