@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome')->with('title', "p3 home");
+    return view('welcome')->with('title', "Developer's Best Friend");
 })->name('welcome');
 
 Route::get('/user/generator', 'RandomUserController@generateForm')->name('userGenerator');
