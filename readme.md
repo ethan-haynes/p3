@@ -11,8 +11,9 @@ TODO
 ## Dependencies
 Frameworks: Bootstrap, Laravel
 Dependency Management: NPM, Composer
-Package (lorem-ipsum generator): [badcow/lorem-ipsum](https://packagist.org/packages/badcow/lorem-ipsum)
-Package (fake user generator): [fzaninotto/faker](https://packagist.org/packages/fzaninotto/faker)
+### Packages
+Packages: [badcow/lorem-ipsum](https://packagist.org/packages/badcow/lorem-ipsum)
+          [fzaninotto/faker](https://packagist.org/packages/fzaninotto/faker)
 
 ## License
 [MIT](http://opensource.org/licenses/MIT).
