@@ -20,7 +20,7 @@ such as a page specific stylesheets.
     <div class="row">
         <div class="col-xs-1 col-md-2"></div>
         <div class="col-xs-10 col-md-8 container text-center">
-            <div class="article-title">{{ $title }}</div>
+            <h2 class="article-title">{{ $title }}</h2>
         </div>
     </div>
     @else
