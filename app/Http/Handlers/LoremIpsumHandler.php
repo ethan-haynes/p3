@@ -8,6 +8,7 @@ use Badcow\LoremIpsum\Generator;
 class LoremIpsumHandler extends Handler {
 
     public static function handleRequest(Request $request) {
+        # gets the relevant bits from the request
         $input = self::parseRequest($request);
 
         $choice = $input['choice'];
@@ -22,6 +23,7 @@ class LoremIpsumHandler extends Handler {
         return $request->all();
     }
 
+    # Returns the data object corresponding to the requested value
     private static function generateByMatch($choice, $number, $generator) {
         switch ($choice) {
             case 'words': return array_slice($generator->getWords(), 0, $number);

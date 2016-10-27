@@ -21,6 +21,9 @@ class RandomUserController extends Controller
             'localeValue' => 'required|min:5|max:5|alpha_dash|regex:[[a-z]{2}_[A-Z]{2}]'
         ]);
 
+        /* handle the request
+         * return the data
+         */
         $users = RandomUserHandler::handleRequest($request);
 
         return view('user')->with('title', "Random User Generator")->with('users', $users);

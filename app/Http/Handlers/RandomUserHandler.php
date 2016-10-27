@@ -8,17 +8,13 @@ use Faker\Factory;
 class RandomUserHandler extends Handler {
 
     public static function handleRequest(Request $request) {
+        # gets the relevant bits from the request
         $input = self::parseRequest($request);
-
-        // $randomUserBuilder = new PasswordBuilder();
-        // $passwordDirector = new PasswordDirector($passwordBuilder);
-        // return $passwordDirector->build();
-
 
         $number = $input['number'];
         $locale = (array_key_exists('localeValue', $input)) ? $input['localeValue'] : 'en_US';
 
-
+        # filter out all the unnecessary data fields
         $output = array_filter($input, function($k) {
             return $k != '_token' &&
                    $k != 'number' &&
@@ -29,6 +25,10 @@ class RandomUserHandler extends Handler {
         $factory = Factory::create($locale);
         $response = array();
 
+        /* for the number of users the user requests
+         * call findMatches on the rquested input
+         * then add those to the response object
+         */
         for ($i=0; $i < $number; $i++) {
             $data = array(
                 'user'.$i => self::findMatches($output, $factory)
@@ -44,7 +44,9 @@ class RandomUserHandler extends Handler {
         return $request->all();
     }
 
+    # Returns the data object corresponding to the requested values
     private static function findMatches($input, $output) {
+        # checks each key value in the request, replaces it with data object value
         foreach ($input as $key => $value) {
             switch ($key) {
                 case 'name': $input[$key] = "Name: ".$output->name;
@@ -64,6 +66,7 @@ class RandomUserHandler extends Handler {
                 # no default required here
             }
         }
+        # return built object when finished
         return $input;
     }
 }

@@ -15,6 +15,9 @@ class LoremIpsumController extends Controller
             'number' => 'required|min:1|max:9|integer',
         ]);
 
+        /* handle the request
+         * return the data
+         */
         $lorems = LoremIpsumHandler::handleRequest($request);
 
         return view('lorem')->with('title', 'Lorem Ipsum Generator')->with('lorems', $lorems);;
