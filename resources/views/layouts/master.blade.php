@@ -6,7 +6,7 @@
         @yield('title','P3')
     </title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="{{ URL::asset('/css/app.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
     <!-- <link rel="stylesheet" href="css/jquery-ui.css"> -->

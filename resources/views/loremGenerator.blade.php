@@ -23,7 +23,7 @@ such as a page specific stylesheets.
             <!-- main column center -->
             <div class="col-xs-10 col-md-8 container text-center">
                 <div>
-                    <div class="article-title">{{ $title }}</div>
+                    <h2 class="article-title">{{ $title }}</h2>
                     <div class="half-line"></div>
                     <div>Powered by Magic &amp; Bubble Yum</div>
                 </div>
