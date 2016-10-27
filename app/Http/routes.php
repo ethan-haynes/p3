@@ -13,10 +13,10 @@
 
 Route::get('/', function () {
     return view('welcome')->with('title', "Developer's Best Friend");
-})->name('welcome');
+})->name('index');
 
-Route::get('/user/generator', 'RandomUserController@generateForm')->name('userGenerator');
-Route::post('/user', 'RandomUserController@generate')->name('users.generate');
+Route::get('/user/generator', 'RandomUserController@generate')->name('users.generate');
+Route::post('/user', 'RandomUserController@show')->name('users');
 
-Route::get('/lorem/generator', 'LoremIpsumController@generateForm')->name('loremGenerator');
-Route::post('/lorem', 'LoremIpsumController@generate')->name('loreipsumsms.generate');
+Route::get('/lorem/generator', 'LoremIpsumController@generate')->name('lorems.generate');
+Route::post('/lorem', 'LoremIpsumController@show')->name('lorems');

@@ -14,7 +14,7 @@ class RandomUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function generate(Request $request) {
+    public function show(Request $request) {
         # Validate the request data
         $this->validate($request, [
             'number' => 'required|min:1|max:9|integer',
@@ -29,7 +29,7 @@ class RandomUserController extends Controller
         return view('user')->with('title', "Random User Generator")->with('users', $users);
     }
 
-    public function generateForm() {
+    public function generate() {
         return view('userGenerator')->with('title', 'Random User Generator');
     }
 }
